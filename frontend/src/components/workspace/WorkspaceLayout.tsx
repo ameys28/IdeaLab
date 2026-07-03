@@ -269,7 +269,7 @@ export const WorkspaceLayout = ({
                     </button>
                   </div>
                   <div className="flex-1 overflow-y-auto">
-                    <IdeaDetailPanel sessionId={sessionId} sendMessage={sendMessage} />
+                    <IdeaDetailPanel sessionId={sessionId} />
                   </div>
                 </div>
               )}

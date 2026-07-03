@@ -5,12 +5,11 @@ import { updateStatus, voteIdea } from "../../services/idea.service";
 import { useAuthStore } from "../../store/authStore";
 import { useIdeaStore } from "../../store/ideaStore";
 import { useSessionStore } from "../../store/sessionStore";
-import type { Comment, IdeaStatus, WSMessage } from "../../types";
+import type { Comment, IdeaStatus } from "../../types";
 import { AIPanel } from "./AIPanel";
 
 interface Props {
   sessionId: string;
-  sendMessage: (message: WSMessage) => void;
 }
 
 const STATUS_CONFIG: Record<IdeaStatus, { color: string; bg: string; border: string; label: string }> = {
@@ -41,7 +40,7 @@ function SendIcon() {
   );
 }
 
-export const IdeaDetailPanel = ({ sessionId, sendMessage }: Props) => {
+export const IdeaDetailPanel = ({ sessionId }: Props) => {
   const idea       = useIdeaStore((s) => s.selectedIdea);
   const updateIdea = useIdeaStore((s) => s.updateIdea);
   const user       = useAuthStore((s) => s.user);

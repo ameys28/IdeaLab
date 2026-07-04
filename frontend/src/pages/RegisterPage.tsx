@@ -39,12 +39,13 @@ export const RegisterPage = () => {
     setLoading(true);
     setError("");
     try {
-      const user = await register(username, email, password);
-      setUser(user);
-      navigate("/sessions");
-    } catch {
-      setError("Something went wrong. Please try again.");
-    } finally {
+  const user = await register(username, email, password);
+  setUser(user);
+  navigate("/sessions");
+} catch (err) {
+  console.error("Registration failed:", err); // <--- ADD THIS LINE
+  setError("Something went wrong. Please try again.");
+}finally {
       setLoading(false);
     }
   };
